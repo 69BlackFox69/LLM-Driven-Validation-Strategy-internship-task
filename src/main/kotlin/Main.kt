@@ -18,7 +18,6 @@ class ParallelDownloader(val url: String, val numThreads: Int) {
 
         println("File size: $fileSize byte. Divide by $numThreads parts.")
 
-        // Подготавливаем файл на диске
         RandomAccessFile(destinationPath, "rw").use { it.setLength(fileSize) }
 
         val chunkSize = fileSize / numThreads
@@ -64,7 +63,6 @@ class ParallelDownloader(val url: String, val numThreads: Int) {
         println("stream $id: Completed!")
     }
 
-    // Утилитная функция для копирования потока байтов
     private fun InputStream.copyTo(file: RandomAccessFile) {
         val buffer = ByteArray(8192)
         var bytes = read(buffer)
@@ -75,10 +73,9 @@ class ParallelDownloader(val url: String, val numThreads: Int) {
     }
 }
 
-// ТОЧКА ВХОДА
+
 fun main() = runBlocking {
-    // Вставь сюда URL своего локального файла (когда запустишь Docker)
-    // Или используй прямую ссылку на какой-нибудь файл в сети для теста
+
     val testUrl = "http://localhost:8080/my-local-file.txt"
     val downloader = ParallelDownloader(testUrl, numThreads = 4)
 

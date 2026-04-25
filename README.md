@@ -2,6 +2,7 @@
 
 # Description:
 A Kotlin file downloader with support for parallel chunk downloading.
+The test specifies a fixed file size to verify data integrity in a specific scenario.
 
 # To run the program
 You may start a web server locally using the following docker command:docker run --rm -p 8080:80 -v /path/to/your/local/directory:/usr/local/apache2/htdocs/ httpd:latest

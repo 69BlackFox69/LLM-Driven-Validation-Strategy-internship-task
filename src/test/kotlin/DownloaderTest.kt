@@ -17,7 +17,7 @@ class DownloaderTest {
             val downloadedFile = File(destination)
 
             assertEquals(true, downloadedFile.exists())
-            assertEquals(1273L, downloadedFile.length())
+            assertEquals(86838L, downloadedFile.length())
 
             downloadedFile.delete()
         }
